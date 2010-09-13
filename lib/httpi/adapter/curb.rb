@@ -36,6 +36,17 @@ module HTTPI
         client.password = password
       end
 
+      def timeout
+        client.timeout
+      end
+
+      def timeout=(timeout)
+        unless timeout.is_a?(Fixnum)
+          raise ArgumentError, "curb only supports integer timeout values !"
+        end
+        client.timeout = timeout
+      end
+
       def get(url)
         client.url = url.to_s
         client.http_get
@@ -51,7 +62,7 @@ module HTTPI
     private
 
       def respond
-        Response.new client.response_code, client.headers, client.body_str
+        Response.new client.response_code, client.headers, client.body_str, client.total_time
       end
 
     end

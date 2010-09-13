@@ -3,7 +3,7 @@ module HTTPI
     module Base
 
       # List of methods expected to be implemented by an adapter.
-      METHODS = %w(setup client headers headers= proxy proxy= get post auth)
+      METHODS = %w(setup client headers headers= proxy proxy= get post auth timeout timeout=)
 
       METHODS.each do |method|
         define_method method do |*args|

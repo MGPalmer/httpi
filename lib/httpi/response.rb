@@ -7,14 +7,15 @@ module HTTPI
     # Range of HTTP response codes considered to be successful.
     SuccessfulResponseCodes = 200..299
 
-    # Initializer expects an HTTP response +code+, +headers+ and +body+.
-    def initialize(code, headers, body)
+    # Initializer expects an HTTP response +code+, +headers+, +body+ and +time_elapsed+.
+    def initialize(code, headers, body, time_elapsed)
       self.code = code
       self.headers = headers
       self.raw_body = body
+      self.time_elapsed = time_elapsed
     end
 
-    attr_accessor :code, :headers, :raw_body
+    attr_accessor :code, :headers, :raw_body, :time_elapsed
 
     # Returns whether the HTTP response is considered successful.
     def error?

@@ -83,3 +83,7 @@ Implement methods for:
 
 * add SSL configuration method
 * add timeout methods
+* add put, delete, head methods
+* Automatic redirect handling - may be too high-level for this library ?
+* Do we need our own timeout exception ? Otherwise, clients need to catch different timeout exception classes...
+* Switching adapters in one process doesn't work
